@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.A.C</title>
+    <!-- favicon link -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Animation on Scroll Aos -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- google font link -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- tailwind css cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- ionicons cdn -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <!-- alpine js cdn -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- style css -->
+    <style type="text/tailwindcss">
+        body{
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    
+
+<!-- ====== header ====== -->
+
+
+<header x-data="{navbarOpen: false}" class="absolute sticky left-0 top-0 z-50 bg-white/90 w-full backdrop-blur">
+    <div class="mx-auto h-[90px] max-w-7xl px-8 md:px-6">
+        <div class="relative flex h-full items-center justify-between border-b border-slate-500/10">
+            <!-- logo -->
+            <div class="w-[100px] max-w-[75px]">
+                <a href="#">
+                    <img src="images/logo.jpeg" alt="logo" class="w-full h-[50px] object-cover">
+                </a>
+            </div>
+
+            <!-- menu -->
+            <div class="flex w-full items-center justify-between">
+                <nav x-transition :class="!navbarOpen && 'hidden'" id="navbarCollapse"
+                    class="absolute right-0 top-[90px] w-full max-w-[350px] rounded-lg border border-blue-200 bg-white py-5 px-6 shadow-lg shadow-blue-400/5 transition-all lg:static lg:block lg:max-w-full lg:border-none lg:shadow-none lg:bg-transparent lg:px-0 lg:py-0">
+                    <ul class="flex flex-col justify-center gap-8 lg:flex-row">
+                        <li>
+                            <a href="#accueil" class="nav-link text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">Accueil</a>
+                        </li>
+                        <li>
+                            <a href="#apropos" class="nav-link text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">Apropos</a>
+                        </li>
+                        <li>
+                            <a href="#services" class="nav-link text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">Services</a>
+                        </li>
+                        <li>
+                            <a href="#contact" class="nav-link text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">Contact</a>
+                        </li>
+                        <li>
+                            <a href="#faq" class="nav-link text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">FAQ</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        
+            <!-- menu btn -->
+            <div class="flex justify-end min-w-[250px] w-[300px]">
+                <a href="#" class="mr-10 hidden rounded-md bg-blue-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-blue-500/20 duration-200 hover:bg-blue-600 sm:block lg:mr-0">Se connecter</a>
+
+                <button @click="navbarOpen = !navbarOpen" :class="navbarOpen && 'navbarTogglerActive'" id="navbarToggler" class="block lg:hidden">
+                    <ion-icon name="menu-outline" class="text-4xl text-blue-500"></ion-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ====== END header ====== -->
+
+
+<!-- ====== hero ====== -->
+
+<section class="relative bg-white pt-[7%] lg:pt-[100px]" id="accueil" data-aos="zoom-out" data-aos-duration="500">
+    <div class="mx-auto max-w-7xl px-8 md:px-6">
+        <div class="flex flex-wrap">
+            <div class="w-full lg:w-5/12  flex flex-col justify-between min-h-[450px]">
+                <div >
+                    <span class=" mb-3 text-base font-bold leading-snug sm:text-base lg:text-[40px] xl:text-xl text-slate-600">B.A.C</span>
+                    <h1 class="text-slate-800 text-4xl font-bold leading-snug sm:text-[42px] lg:text-[40px] xl:text-[32px]"><span class="text-blue-500">B</span>ank <span class="text-blue-500">A</span>gricultural <span class="text-blue-500">C</span>redit</h1>
+                    <div class="mb-10">
+    
+                        <span class="text-slate-500 mb-8 max-w-[480px] text-xl" id="typed"></span>
+                    </div>
+                    
+                    <div class="flex flex-wrap ">
+                        <a href="#quality" class="w-full rounded-md bg-blue-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-blue-500/20 hover:bg-blue-600 duration-200 sm:w-auto no-underline visited:bg-blue-500 visited:text-white visited:shadow-blue-500/20">
+                            Découvrir
+                        </a>       
+        
+                        <a href="#contact" class="mt-4 box-border w-full rounded-md border border-blue-500/20 px-8 py-2.5 font-semibold text-blue-500 shadow-md shadow-blue-500/10 duration-200 sm:ml-4 sm:mt-0 sm:w-auto no-underline visited:bg-blue-500 visited:text-blue-500 visited:shadow-blue-500/20">Devenir membre</a>
+
+                    </div>
+                </div>
+
+                <!-- brand -->
+                <div class="flex flex-wrap gap-4 my-[5%]">
+                    <img src="images/brand/mvola.png" alt="brand" class="w-32 h-[75px] object-cover cursor-pointer rounded-lg border border-blue-300/20 bg-white shadow-md shadow-blue-500/5 duration-200 hover:scale-95 sm:w-36">
+                    <img src="images/brand/airtel.png" alt="brand" class="w-32 h-[75px] object-cover  cursor-pointer rounded-lg border border-blue-300/20 bg-white shadow-md shadow-blue-500/5 duration-200 hover:scale-95 sm:w-36">
+                    <img src="images/brand/orange.png" alt="brand" class="w-32 h-[75px] object-cover cursor-pointer rounded-lg border border-blue-300/20 bg-white shadow-md shadow-blue-500/5 duration-200 hover:scale-95 sm:w-36">
+                </div>
+            </div>
+
+            <div class="hidden px-4 lg:block lg:w-1/12"></div>
+            <!-- add shadow on the bottom of the image -->
+            <div class="w-full px-4 lg:w-6/12 shadow-lg shadow-black-500" data-aos="fade-down" data-aos-duration="500"data-aos-once="true">
+                <div class="lg:ml-auto lg:text-right">
+                    <div class="relative z-10 inline-block pt-11 lg:pt-0">
+                        <img src="images/customer.png" alt="hero section img" class="max-w-full lg:ml-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ====== END hero ====== -->
+
+
+<!-- ====== features ====== -->
+
+
+<section class="pb-16 pt-[7%]" id="quality">
+    <div class="mx-auto max-w-7xl px-8 md:px-6">
+        <!-- heading text -->
+        <div class="mb-5 sm:mb-10">
+            <span class="font-medium text-blue-500">Nos Qualités</span>
+            <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">Pourquoi Nous Choisir ?</h1>
+        </div>
+        <!-- features img -->
+        <div class="md:flex md:justify-between md:gap-6 xl:gap-10">
+            <div class="mb-5 max-h-[600px] overflow-hidden rounded-lg md:mb-0 md:w-5/12" 
+            className=" flex justify-start items-center">
+                <img src="images/features/why.jpg" alt="features img" class="h-full scale-125x sm:w-full sm:object-cover">
+            </div>
+            <div class="md:w-7/12">
+                <div class="mb-16 flex flex-col">
+                    <p class="mb-3 text-slate-500">Pour repondre aux besoins des agriculteurs, nous avons mis en place des mesures satisfaisantes.</p>
+
+                    <p class="mb-10 text-slate-500">On vise a proposé des prêts flexibles et abordables aux Agriculteurs</p>
+
+                </div>
+
+                <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 text-center">
+                    <div class="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg" data-aos="fade-left" data-aos-duration="500">
+                        <img class="mb-3 w-16" src="images/features/icon (1).png" alt="">
+                        <h3 class="text-lg font-bold text-slate-600">Des Solutions Personnalisées</h3>
+                        <p href="#" class="mt-3 text-sm text-slate-500">Nous comprenons les défis uniques des agriculteurs et adaptons nos services en conséquence.</p>
+                    </div>
+                    <div class="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg" data-aos="fade-left" data-aos-duration="800">
+                        <img class="mb-3 w-16" src="images/features/icon (2).png" alt="">
+                        <h3 class="text-lg font-bold text-slate-600">Accompagnement de Proximité</h3>
+                        <p href="#" class="mt-3 text-sm text-slate-500">Nos équipes sont présentes sur le terrain pour vous soutenir tout au long de votre parcours.</p>
+                    </div>
+                    <div class="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg" data-aos="fade-left" data-aos-duration="1000">
+                        <img class="mb-3 w-16" src="images/features/icon (3).png" alt="">
+                        <h3 class="text-lg font-bold text-slate-600">Impact Social</h3>
+                        <p href="#" class="mt-3 text-sm text-slate-500">En soutenant les agriculteurs, nous contribuons au développement des communautés rurales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== END features ====== -->
+
+
+<!-- ====== about ====== -->
+
+<section class="py-[7%]" id="apropos">
+    <div class="mx-auto max-w-7xl px-8 md:px-6">
+        <div class="md:flex md:justify-between md:gap-6">
+            <div class="md:w-6/12">
+                 <!-- heading text -->
+                <div class="mb-5 sm:mb-10">
+                    <span class="font-medium text-blue-500">Apropos</span>
+                    <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">Bank Agricultural Credit</h1>
+                </div>
+                <p class="text-slate-500 mb-6">Nous croyons que l'agriculture est la clé du développement durable et de la prospérité. Chez <span class="font-bold leading-snug sm:text-xl lg:text-lg  text-blue-600">B.A.C</span>, notre mission est de fournir des solutions de microfinance accessibles et adaptées aux besoins des agriculteurs.</p>
+                <ul class="py-5">
+                    <li class="mb-6 flex items-center" data-aos="fade-down-right" data-aos-duration="500">
+                        <div class="flex h-[35px] w-[35px] min-w-[35px] items-center justify-center rounded-full bg-blue-500 text-white">
+                            <ion-icon name="cube-outline"></ion-icon>
+                        </div>
+                        <p class="ml-4 max-w-md font-medium text-slate-600" >Crédits agricoles pour soutenir les petits exploitants dans l'acquisition de semences, d'engrais, et d'équipements.</p>
+                    </li>
+                    <li class="mb-6 flex items-center" data-aos="fade-down-right" data-aos-duration="800">
+                        <div class="flex h-[35px] w-[35px] min-w-[35px] items-center justify-center rounded-full bg-blue-500 text-white">
+                            <ion-icon name="briefcase-outline"></ion-icon>
+                        </div>
+                        <p class="ml-4 max-w-md font-medium text-slate-600" >Accompagnant dans la gestion de leurs cultures pour maximiser les rendement.</p>
+                    </li>
+                    <li class="mb-6 flex items-center" data-aos="fade-down-right" data-aos-duration="1000">
+                        <div class="flex h-[35px] w-[35px] min-w-[35px] items-center justify-center rounded-full bg-blue-500 text-white">
+                            <ion-icon name="mail-unread-outline"></ion-icon>
+                        </div>
+                        <p class="ml-4 max-w-md font-medium text-slate-600" >Assurance et financement à faible coût.</p>
+                    </li>
+                </ul>
+                 <a href="#contact" class="w-full rounded-md bg-blue-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-blue-500/20 hover:bg-blue-600 duration-200 md:w-max no-underline visited:bg-blue-500 visited:text-white visited:shadow-blue-500/20">Devenir membre</a>
+            </div>
+
+            <!-- about img -->
+            <div class="mt-8 flex justify-center md:mt-0 md:w-5/12" data-aos="zoom-in" data-aos-duration="1000" >
+                <img src="images/about.png" alt="about img" class="max-h-[500px] md:max-h-max">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ====== END about ====== -->
+
+
+<!-- ====== service ====== -->
+<section class="py-[7%]" id="services">
+    <div class="mx-auto max-w-7xl px-8 md:px-6">
+        <!-- heading text -->
+        <div class="mb-10 text-center">
+            <span class="font-medium text-blue-500">Nos Services</span>
+            <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">Nous offrons des services de qualité</h1>
+        </div>
+
+        <!-- box wrapper -->
+        <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 xl:gap-8 py-[7%]">
+            <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-blue-500/10 bg-white px-5 py-8 shadow-lg shadow-blue-300/10 duration-200 hover:bg-blue-500" data-aos="zoom-in"
+      data-aos-duration="500">
+                <ion-icon name="bar-chart-outline" class="text-[55px] text-blue-500 duration-200 group-hover:text-white"></ion-icon>
+                <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">Microcrédit Agricole</h4>
+                <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-blue-200">Nous proposons des prêts flexibles et abordables aux agriculteurs, adaptés à leurs besoins en production et investissements.</p>
+            </div>
+
+            <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-blue-500/10 bg-white px-5 py-8 shadow-lg shadow-blue-300/10 duration-200 hover:bg-blue-500" data-aos="zoom-in"
+      data-aos-duration="500">
+                <ion-icon name="speedometer-outline" class="text-[55px] text-blue-500 duration-200 group-hover:text-white"></ion-icon>
+                <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">Assurance Récolte</h4>
+                <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-blue-200">Pour protéger les agriculteurs contre les imprévus, nous proposons des produits d'assurance récolte qui couvrent les pertes liées aux conditions climatiques extrêmes.</p>
+            </div>
+
+            <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-blue-500/10 bg-white px-5 py-8 shadow-lg shadow-blue-300/10 duration-200 hover:bg-blue-500" data-aos="zoom-in"
+      data-aos-duration="500">
+                <ion-icon name="diamond-outline" class="text-[55px] text-blue-500 duration-200 group-hover:text-white"></ion-icon>
+                <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">Formation et Accompagnement</h4>
+                <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-blue-200">Nous offrons également une formation en gestion agricole et financière, avec un accompagnement personnalisé par nos experts.</p>
+            </div>
+
+        </div>
+        <!-- tableau -->
+        <div class="container mx-auto pt-[5%]" data-aos="fade-up" data-aos-duration="800">
+            <h1 class="text-2xl font-bold mb-4 text-center">Taux d'Intérêt</h1>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-300">
+                    <thead class="bg-gray-200 text-gray-700">
+                        <tr>
+                            <th class="py-2 px-4 text-left border-b border-gray-300">Type de Microcrédit</th>
+                            <th class="py-2 px-4 text-left border-b border-gray-300">Durée du Prêt</th>
+                            <th class="py-2 px-4 text-left border-b border-gray-300">Montant du Prêt (Ariary)</th>
+                            <th class="py-2 px-4 text-left border-b border-gray-300">Taux d'Intérêt (annuel)</th>
+                            <th class="py-2 px-4 text-left border-b border-gray-300">Frais de Dossier</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-gray-100">
+                            <td class="py-2 px-4 border-b border-gray-300">Microcrédit à court terme</td>
+                            <td class="py-2 px-4 border-b border-gray-300">6 à 12 mois</td>
+                            <td class="py-2 px-4 border-b border-gray-300">500 000 à 1 000 000</td>
+                            <td class="py-2 px-4 border-b border-gray-300">8% à 10%</td>
+                            <td class="py-2 px-4 border-b border-gray-300">2% du montant</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-300">Microcrédit à moyen terme</td>
+                            <td class="py-2 px-4 border-b border-gray-300">12 à 24 mois</td>
+                            <td class="py-2 px-4 border-b border-gray-300">1 000 0000 à 3 500 000</td>
+                            <td class="py-2 px-4 border-b border-gray-300">7% à 9%</td>
+                            <td class="py-2 px-4 border-b border-gray-300">1,5% du montant</td>
+                        </tr>
+                        <tr class="bg-gray-100">
+                            <td class="py-2 px-4 border-b border-gray-300">Microcrédit à long terme</td>
+                            <td class="py-2 px-4 border-b border-gray-300">24 à 36 mois</td>
+                            <td class="py-2 px-4 border-b border-gray-300">4 000 000 à 15 000 0000</td>
+                            <td class="py-2 px-4 border-b border-gray-300">6% à 8%</td>
+                            <td class="py-2 px-4 border-b border-gray-300">1% du montant</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-300">Microcrédit pour équipements agricoles</td>
+                            <td class="py-2 px-4 border-b border-gray-300">Jusqu'à 36 mois</td>
+                            <td class="py-2 px-4 border-b border-gray-300">800 000 à 15 000 000</td>
+                            <td class="py-2 px-4 border-b border-gray-300">6.5% à 8.5%</td>
+                            <td class="py-2 px-4 border-b border-gray-300">1.5% du montant</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== END service ====== -->
+
+
+<!-- ====== FAQ ====== -->
+
+<section class="py-[5%]" id="faq">
+    <div class="mx-auto max-w-7xl px-8 md:px-6">
+        <!-- heading text -->
+        <div class="mb-5 sm:mb-10">
+            <span class="font-medium text-blue-500">FAQ</span>
+            <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">Questions fréquemment posées</h1>
+        </div>
+            <!-- wrapper -->
+            <div class="md:flex md:justify-between md:gap-6">
+                <div class="mb-8 flex justify-center md:mb-0 md:w-5/12">
+                    <img src="images/faq.png" alt="faq images" class="max-h-[500px] md:max-h-max">
+                </div>
+                
+                <div class="md:w-6/12">
+                    <div class="" x-data="{selected:1}">
+                        <ul>
+                            <li class="relative mb-5" data-aos="fade-up-left" data-aos-duration="800">
+                                <button type="button" class="w-full rounded-lg bg-blue-50 px-8 py-6 text-left" @click="selected !== 1 ? selected = 1 : selected = null">
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="font-medium text-slate-600">Qui peut bénéficier des crédits agricoles offerts par B.A.C ?</h4>
+                                        <ion-icon name="chevron-down-circle-outline" class="w-8 text-lg text-blue-500"></ion-icon>
+                                    </div>
+                                </button>
+
+                                <div class="relative max-h-0 overflow-hidden rounded-b-lg bg-blue-50/30 transition-all duration-500" x-ref="container1" x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+                                    <div class="p-6">
+                                        <p class="text-slate-500">Les crédits agricoles de B.A.C sont destinés aux petits et moyens agriculteurs qui cherchent à développer leur exploitation, investir dans de nouveaux équipements, ou améliorer leur productivité.</p>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="relative mb-5" data-aos="fade-up-left" data-aos-duration="800">
+                                <button type="button" class="w-full rounded-lg bg-blue-50 px-8 py-6 text-left" @click="selected !== 2 ? selected = 2 : selected = null">
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="font-medium text-slate-600">Comment puis-je faire une demande de microcrédit ?</h4>
+                                        <ion-icon name="chevron-down-circle-outline" class="w-8 text-lg text-blue-500"></ion-icon>
+                                    </div>
+                                </button>
+
+                                <div class="relative max-h-0 overflow-hidden rounded-b-lg bg-blue-50/30 transition-all duration-500" x-ref="container2" x-bind:style="selected == 2 ? 'max-height: ' + $refs.container2.scrollHeight + 'px' : ''">
+                                    <div class="p-6">
+                                        <p class="text-slate-500">Pour faire une demande de microcrédit, vous pouvez remplir notre formulaire en ligne sur le site web ou nous contacter directement par téléphone ou email. Nous vous guiderons à travers le processus et les documents nécessaires.</p>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="relative mb-5" data-aos="fade-up-left" data-aos-duration="800">
+                                <button type="button" class="w-full rounded-lg bg-blue-50 px-8 py-6 text-left" @click="selected !== 3 ? selected = 3 : selected = null">
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="font-medium text-slate-600">Quels sont les critères d'éligibilité pour obtenir un prêt ?</h4>
+                                        <ion-icon name="chevron-down-circle-outline" class="w-8 text-lg text-blue-500"></ion-icon>
+                                    </div>
+                                </button>
+
+                                <div class="relative max-h-0 overflow-hidden rounded-b-lg bg-blue-50/30 transition-all duration-500" x-ref="container3" x-bind:style="selected == 3 ? 'max-height: ' + $refs.container3.scrollHeight + 'px' : ''">
+                                    <div class="p-6">
+                                        <p class="text-slate-500">Les critères d'éligibilité incluent la taille de votre exploitation, votre expérience dans le domaine agricole, et votre capacité à rembourser le prêt. Chaque demande est évaluée individuellement pour déterminer la meilleure solution de financement.</p>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="relative mb-5" data-aos="fade-up-left" data-aos-duration="800">
+                                <button type="button" class="w-full rounded-lg bg-blue-50 px-8 py-6 text-left" @click="selected !== 4 ? selected = 4 : selected = null">
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="font-medium text-slate-600">Combien de temps faut-il pour obtenir une réponse après avoir soumis une demande de prêt ?</h4>
+                                        <ion-icon name="chevron-down-circle-outline" class="w-8 text-lg text-blue-500"></ion-icon>
+                                    </div>
+                                </button>
+
+                                <div class="relative max-h-0 overflow-hidden rounded-b-lg bg-blue-50/30 transition-all duration-500" x-ref="container4" x-bind:style="selected == 4 ? 'max-height: ' + $refs.container4.scrollHeight + 'px' : ''">
+                                    <div class="p-6">
+                                        <p class="text-slate-500">Après avoir soumis une demande de prêt complète, notre équipe s'efforce de fournir une réponse dans un délai de 5 à 10 jours ouvrables. Le délai peut varier en fonction de la complexité de la demande et des documents soumis.</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== END FAQ ====== -->
+
+
+<!-- ====== Portfolio ====== -->
+
+<section class="py-[7%]">
+    <div class="mx-auto max-w-7xl px-8 md:px-6">
+        <!-- heading text -->
+        <div class="mb-10 text-center">
+            <span class="font-medium text-blue-500">Nos membres</span>
+            <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">Ceux qui nous ont fait confiance</h1>
+            <p class="mx-auto max-w-[380px] mt-2 text-slate-500">Les agriculteurs sont repartis partout dans les regions de Madagascar.</p>
+        </div>
+        <!-- wrapper -->
+        <div class="flex flex-col gap-5" data-aos="zoom-in-down" data-aos-duration="800"">
+            <!-- col-1 -->
+            <div class="grid gap-5 sm:grid-cols-2 md:grid-cols-4">
+                <div class="group relative h-40 overflow-hidden rounded-lg lg:h-52">
+                    <img src="images/portfolio/p-1.jpg" alt="portfolio img" class="absolute h-full w-full object-cover duration-200 group-hover:scale-125">
+                    <div class="absolute -bottom-60 flex w-full cursor-pointer items-center justify-between bg-gradient-to-t from-slate-800 px-3 pb-4 pt-10 duration-200 group-hover:-bottom-0">
+                        <p class="text-sm font-semibold text-white">Analamanga <span class="text-xs text-slate-300 block">12 Mai 2023</span></p>
+                        <ion-icon name="heart" class="rounded-full bg-white p-1.5 text-lg text-blue-500"></ion-icon>
+                    </div>
+                </div>
+                <div class="group relative h-40 overflow-hidden rounded-lg lg:h-52">
+                    <img src="images/portfolio/p-2.jpg" alt="portfolio img" class="absolute h-full w-full object-cover duration-200 group-hover:scale-125">
+                    <div class="absolute -bottom-60 flex w-full cursor-pointer items-center justify-between bg-gradient-to-t from-slate-800 px-3 pb-4 pt-10 duration-200 group-hover:-bottom-0">
+                        <p class="text-sm font-semibold text-white">Bongolava <span class="text-xs text-slate-300 block">22 Juin 2023</span></p>
+                        <ion-icon name="heart" class="rounded-full bg-white p-1.5 text-lg text-blue-500"></ion-icon>
+                    </div>
+                </div>
+                <div class="group relative h-40 overflow-hidden rounded-lg lg:h-52 sm:col-span-2">
+                    <img src="images/portfolio/p-3.jpg" alt="portfolio img" class="absolute h-full w-full object-cover duration-200 group-hover:scale-125">
+                    <div class="absolute -bottom-60 flex w-full cursor-pointer items-center justify-between bg-gradient-to-t from-slate-800 px-3 pb-4 pt-10 duration-200 group-hover:-bottom-0">
+                        <p class="text-sm font-semibold text-white">Vakinankaratra <span class="text-xs text-slate-300 block">13 Janvier 2024</span></p>
+                        <ion-icon name="heart" class="rounded-full bg-white p-1.5 text-lg text-blue-500"></ion-icon>
+                    </div>
+                </div>
+            </div>
+            <!-- end col-1 -->
+
+            <!-- col-2 -->
+            <div class="grid gap-5 sm:grid-cols-2 md:grid-cols-3">
+                <div class="group relative h-40 overflow-hidden rounded-lg lg:h-52 md:col-span-2">
+                    <img src="images/portfolio/p-4.jpg" alt="membre img" class="absolute h-full w-full object-cover duration-200 group-hover:scale-125">
+                    <div class="absolute -bottom-60 flex w-full cursor-pointer items-center justify-between bg-gradient-to-t from-slate-800 px-3 pb-4 pt-10 duration-200 group-hover:-bottom-0">
+                        <p class="text-sm font-semibold text-white">Haute Matsiatra <span class="text-xs text-slate-300 block">26 Fevrier 2024</span></p>
+                        <ion-icon name="heart" class="rounded-full bg-white p-1.5 text-lg text-blue-500"></ion-icon>
+                    </div>
+                </div>
+                <div class="group relative h-40 overflow-hidden rounded-lg lg:h-52">
+                    <img src="images/portfolio/p-5.jpeg" alt="membre img" class="absolute h-full w-full object-cover duration-200 group-hover:scale-125">
+                    <div class="absolute -bottom-60 flex w-full cursor-pointer items-center justify-between bg-gradient-to-t from-slate-800 px-3 pb-4 pt-10 duration-200 group-hover:-bottom-0">
+                        <p class="text-sm font-semibold text-white">Alaotra-Mangoro <span class="text-xs text-slate-300 block">18 Mars 2024</span></p>
+                        <ion-icon name="heart" class="rounded-full bg-white p-1.5 text-lg text-blue-500"></ion-icon>
+                    </div>
+                </div>
+            </div>
+            <!-- end col-2 -->
+
+            <!-- col-3 -->
+            <div class="grid gap-5 sm:grid-cols-2 md:grid-cols-4">
+                <div class="group relative h-40 overflow-hidden rounded-lg lg:h-52">
+                    <img src="images/portfolio/p-6.jpg" alt="membre img" class="absolute h-full w-full object-cover duration-200 group-hover:scale-125">
+                    <div class="absolute -bottom-60 flex w-full cursor-pointer items-center justify-between bg-gradient-to-t from-slate-800 px-3 pb-4 pt-10 duration-200 group-hover:-bottom-0">
+                        <p class="text-sm font-semibold text-white">Analanjirofo <span class="text-xs text-slate-300 block">25 Mars 2024</span></p>
+                        <ion-icon name="heart" class="rounded-full bg-white p-1.5 text-lg text-blue-500"></ion-icon>
+                    </div>
+                </div>
+                <div class="group relative h-40 overflow-hidden rounded-lg lg:h-52">
+                    <img src="images/portfolio/p-7.jpg" alt="membre img" class="absolute h-full w-full object-cover duration-200 group-hover:scale-125">
+                    <div class="absolute -bottom-60 flex w-full cursor-pointer items-center justify-between bg-gradient-to-t from-slate-800 px-3 pb-4 pt-10 duration-200 group-hover:-bottom-0">
+                        <p class="text-sm font-semibold text-white">Itasy <span class="text-xs text-slate-300 block">17 Juillet 2023</span></p>
+                        <ion-icon name="heart" class="rounded-full bg-white p-1.5 text-lg text-blue-500"></ion-icon>
+                    </div>
+                </div>
+                <div class="group relative h-40 overflow-hidden rounded-lg lg:h-52 sm:col-span-2">
+                    <img src="images/portfolio/p-8.jpg" alt="membre img" class="absolute h-full w-full object-cover duration-200 group-hover:scale-125">
+                    <div class="absolute -bottom-60 flex w-full cursor-pointer items-center justify-between bg-gradient-to-t from-slate-800 px-3 pb-4 pt-10 duration-200 group-hover:-bottom-0">
+                        <p class="text-sm font-semibold text-white">Ambatosoa <span class="text-xs text-slate-300 block">19 Aout 2024</span></p>
+                        <ion-icon name="heart" class="rounded-full bg-white p-1.5 text-lg text-blue-500"></ion-icon>
+                    </div>
+                </div>
+            </div>
+            <!-- end col-3 -->
+        </div>
+    </div>
+</section>
+<!-- ====== END Portfolio ====== -->
+
+<!-- ====== Contact ====== -->
+
+
+<section class="relative overflow-hidden py-[7%]" id="contact">
+    <img src="images/effect.png" alt="effect" class="absolute bottom-[-400px] -z-10 w-full opacity-[0.2]">
+    <div class="mx-auto max-w-7xl px-8 md:px-6">
+        <div class="-mx-4 flex flex-wrap lg:justify-between">
+
+            <!-- left info-->
+            <div class="w-full px-4 md:w-1/2 xl:w-6/12">
+                <div class="mb-12 max-w-[570px] lg:mb-0">
+                    <span class="font-medium text-blue-500">Contact Nous !</span>
+                    <h1 class="mb-3 text-2xl font-bold text-slate-700 sm:text-3xl">Rejoignez-Nous</h1>
+                    <p class="text-slate-500 mb-8">Prêt à faire croître votre exploitation agricole ? Contactez-nous dès aujourd'hui pour découvrir comment B.A.C peut vous aider à atteindre vos objectifs.</p>
+                    
+                    
+                    <!-- address -->
+                    <div class="mb-8 flex w-full max-w-[420px] items-center rounded-lg bg-white p-4 shadow-md shadow-blue-500/10" data-aos="fade-up-left" data-aos-duration="500">
+                        <div class="mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-blue-500 bg-opacity-5 text-blue-500 sm:h-[70px] sm:max-w-[70px]">
+                            <ion-icon name="location-outline" class="text-3xl"></ion-icon>
+                        </div>
+                        <div class="w-full">
+                            <h4 class="mb-1 text-xl font-bold text-slate-700">Adresse</h4>
+                            <p class="text-base text-slate-400
+                            ">Antananarivo, 101, Madagascar</p>
+                        </div>
+                    </div>
+                    <!-- phone -->
+                    <div class="mb-8 flex w-full max-w-[420px] items-center rounded-lg bg-white p-4 shadow-md shadow-blue-500/10" data-aos="fade-up-left" data-aos-duration="800">
+                        <div class="mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-blue-500 bg-opacity-5 text-blue-500 sm:h-[70px] sm:max-w-[70px]">
+                            <ion-icon name="call-outline" class="text-3xl"></ion-icon>
+                        </div>
+                        <div class="w-full">
+                            <h4 class="mb-1 text-xl font-bold text-slate-700">Telephone </h4>
+                            <p class="text-base text-slate-400
+                            ">+261 38 62 706 75</p>
+                        </div>
+                    </div>
+                    <!-- mail -->
+                    <div class="mb-8 flex w-full max-w-[420px] items-center rounded-lg bg-white p-4 shadow-md shadow-blue-500/10" data-aos="fade-up-left" data-aos-duration="1000">
+                        <div class="mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-blue-500 bg-opacity-5 text-blue-500 sm:h-[70px] sm:max-w-[70px]">
+                            <ion-icon name="mail-outline" class="text-3xl"></ion-icon>
+                        </div>
+                        <div class="w-full">
+                            <h4 class="mb-1 text-xl font-bold text-slate-700">Email</h4>
+                            <p class="text-base text-slate-400
+                            ">bac.agricultural@gmail.com</p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- right contact-->
+            <div class="w-full px-4 md:w-1/2 xl:w-5/12">
+                <div class="relative rounded-lg bg-white p-8 shadow-lg shadow-blue-500/10 sm:p-12">
+                    <form action="">
+                        <div class="mb-6">
+                            <input type="text" placeholder="Nom" class="w-full rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none">
+                        </div>
+                        <div class="mb-6">
+                            <input type="email" placeholder="Email" class="w-full rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none">
+                        </div>
+                        <div class="mb-6">
+                            <input type="tel" placeholder="Contact" class="w-full rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none">
+                        </div>
+                        <div class="mb-6">
+                            <textarea name="message" placeholder="Message" rows="6" class="resize-none w-full rounded-lg border border-blue-500/20 px-4 py-3 text-slate-500 focus:border-blue-500 focus:outline-none"></textarea>
+                        </div>
+                        <div class="">
+                            <button type="submit" class="w-full rounded border border-blue-300 bg-blue-500 p-3 text-white transition-all hover:bg-opacity-90">Envoyer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ====== END Contact ====== -->
+
+<!-- ====== footer ====== -->
+
+<footer class="bg-slate-50/80 pt-16">
+    <div class="mx-auto max-w-7xl px-8 md:px-6">
+
+        <!-- footer top -->
+        <div class="grid gap-16 row-gap-10 mb-8 lg:grid-cols-6">
+            <div class="md:max-w-md lg:col-span-2">
+                <img src="images/logo.jpeg" alt="footer logo" class="w-36">
+                <div class="mt-4 lg:max-w-sm">
+                    <p class="text-sm text-slate-500">B.A.C est une agence de financement agricole, qui a été fondee en 2023, par une Organisation Non Gouvernementale basé sur le principe du Microcrédit.</p>
+                </div>
+            </div>
+
+            <div class="grid row-gap-8 grid-cols-2 gap-5 md:grid-cols-4 lg:col-span-4">
+                <div class="">
+                    <!-- head -->
+                    <p class="font-semibold text-slate-700">Partenaire</p>
+                    <ul class="mt-2 space-y-2">
+                        <li><a href="#" class="text-slate-500 transition-colors duration-300 hover:text-slate-700">Banque Mondiale</a></li>
+                        <li><a href="#" class="text-slate-500 transition-colors duration-300 hover:text-slate-700">Ministère de la finance</a></li>
+                        <li><a href="#" class="text-slate-500 transition-colors duration-300 hover:text-slate-700">Ministère de l'economie</a></li>
+                        <li><a href="#" class="text-slate-500 transition-colors duration-300 hover:text-slate-700">Ministère de l'agriculture</a></li>
+                        <li><a href="#" class="text-slate-500 transition-colors duration-300 hover:text-slate-700">Telma, Orange, Airtel</a></li>
+                    </ul>
+                </div>
+
+                <div class="">
+                    <!-- head -->
+                    <p class="font-semibold text-slate-700">Province</p>
+                    <ul class="mt-2 space-y-2">
+                        <li><a href="#" class="text-slate-500 transition-colors duration-300 hover:text-slate-700">Antananarivo</a></li>
+                        <li><a href="#" class="text-slate-500 transition-colors duration-300 hover:text-slate-700">Fianarantsoa</a></li>
+                        <li><a href="#" class="text-slate-500 transition-colors duration-300 hover:text-slate-700">Toliara</a></li>
+                        <li><a href="#" class="text-slate-500 transition-colors duration-300 hover:text-slate-700">Majunga</a></li>
+                        <li><a href="#" class="text-slate-500 transition-colors duration-300 hover:text-slate-700">Tamatave</a></li>
+                        <li><a href="#" class="text-slate-500 transition-colors duration-300 hover:text-slate-700">Diego</a></li>
+                    </ul>
+                </div>
+                <div class="col-span-2 ">
+                    <!-- map -->
+                    <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=500&amp;height=200&amp;hl=en&amp;q=ant&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://strandsgame.net/">Strands Game</a></div><style>.mapouter{position:relative;text-align:right;width:100%;height:200px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:200px;}.gmap_iframe {height:200px!important;}</style></div>
+                </div>
+
+            </div>
+        </div>
+        <!-- End footer top -->
+
+        <!-- footer bottom -->
+        <div class="flex flex-col justify-between border-t py-8 sm:flex-row">
+            <p class="text-sm text-slate-500">© Copyright 2024 <a href="#" class="text-slate-700 hover:text-blue-500"> | B.A.C</a></p>
+            <div class="mt-4 flex items-center space-x-4 sm:mt-0">
+                <a href="#">
+                    <ion-icon name="logo-facebook" class="text-2xl text-slate-500 hover:text-blue-500 duration-300"></ion-icon>
+                </a>
+                <a href="#">
+                    <ion-icon name="logo-twitter" class="text-2xl text-slate-500 hover:text-blue-500 duration-300"></ion-icon>
+                </a>
+                <a href="#">
+                    <ion-icon name="logo-youtube" class="text-2xl text-slate-500 hover:text-blue-500 duration-300"></ion-icon>
+                </a>
+            </div>
+        </div>
+        <!-- End footer bottom -->
+
+    </div>
+</footer>
+
+<!-- ====== END footer ====== -->
+
+<!-- aos -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<!-- typed -->
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+ <!-- Setup and start animation! -->
+ <script>
+    var typed = new Typed('#typed', {
+      strings: ['Autonomiser les agriculteurs', 'Renforcer les communautés.'],
+      typeSpeed:75,
+      backSpeed: 30,
+      loop: true
+    });
+  </script>
+<script>
+    // Récupère tous les liens de navigation
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Ajoute un écouteur d'événement à chaque lien
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // Supprime la classe active de tous les liens
+            navLinks.forEach(link => link.classList.remove('text-blue-800'));
+            
+            // Ajoute la classe active au lien cliqué
+            this.classList.add('text-blue-800');
+        });
+    });
+
+    // Optionnel: Ajouter une classe active au lien en fonction de l'URL lors du chargement de la page
+    window.addEventListener('DOMContentLoaded', () => {
+        const currentPath = window.location.hash;
+        if (currentPath) {
+            const activeLink = document.querySelector(`a[href="${currentPath}"]`);
+            if (activeLink) {
+                // Supprime la classe active de tous les liens
+                navLinks.forEach(link => link.classList.remove('text-blue-800'));
+                // Ajoute la classe active au lien correspondant à l'URL actuelle
+                activeLink.classList.add('text-blue-800');
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
